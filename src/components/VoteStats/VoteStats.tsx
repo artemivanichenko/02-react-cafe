@@ -1,5 +1,5 @@
 // import { useState } from "react";
-import { Votes } from "../type/votes";
+import { Votes } from "../types/votes";
 // import VoteOptions from "../VoteOptions/VoteOptions";
 import css from "./VoteStats.module.css";
 

@@ -1,6 +1,6 @@
 // import type { MouseEvent } from "react";
 import css from "./VoteOptions.module.css";
-import { VoteType } from "../type/votes";
+import { VoteType } from "../types/votes";
 
 interface VoteOptionsProps {
 	onVote: (value: VoteType) => void;
