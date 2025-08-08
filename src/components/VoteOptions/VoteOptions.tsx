@@ -5,7 +5,7 @@ import { VoteType } from "../../types/votes";
 interface VoteOptionsProps {
 	onVote: (value: VoteType) => void;
 	onReset: () => void;
-	canReset: number;
+	canReset: boolean;
 }
 
 const VoteOptions = ({ onVote, onReset, canReset }: VoteOptionsProps) => {
@@ -20,7 +20,7 @@ const VoteOptions = ({ onVote, onReset, canReset }: VoteOptionsProps) => {
 			<button onClick={() => onVote("bad")} className={css.button}>
 				Bad
 			</button>
-			{canReset > 0 && (
+			{canReset && (
 				<button onClick={onReset} className={`${css.button} ${css.reset}`}>
 					Reset
 				</button>
