@@ -1,33 +1,32 @@
-// .container {
-//     display: flex;
-//     gap: 8px;
-//     flex-wrap: wrap;
-//   }
+// import type { MouseEvent } from "react";
+import css from "./VoteOptions.module.css";
+import { VoteType } from "../type/votes";
 
-//   .button {
-//     padding: 10px 22px;
-//     background-color: #0a66c2;
-//     color: #fff;
-//     border: 1px solid #0a66c2;
-//     border-radius: 4px;
-//     font-size: 16px;
-//     font-weight: 500;
-//     cursor: pointer;
-//     transition: background-color 0.2s ease, border-color 0.2s ease;
-//     min-width: 120px;
-//   }
+interface VoteOptionsProps {
+	onVote: (value: VoteType) => void;
+	onReset: () => void;
+	canReset: number;
+}
 
-//   .button:hover {
-//     background-color: #004182;
-//     border-color: #003060;
-//   }
+const VoteOptions = ({ onVote, onReset, canReset }: VoteOptionsProps) => {
+	return (
+		<div className={css.container}>
+			<button onClick={() => onVote("good")} className={css.button}>
+				Good
+			</button>
+			<button onClick={() => onVote("neutral")} className={css.button}>
+				Neutral
+			</button>
+			<button onClick={() => onVote("bad")} className={css.button}>
+				Bad
+			</button>
+			{canReset > 0 && (
+				<button onClick={onReset} className={`${css.button} ${css.reset}`}>
+					Reset
+				</button>
+			)}
+		</div>
+	);
+};
 
-//   .reset {
-//     background-color: #dc3545;
-//     border-color: #dc3545;
-//   }
-
-//   .reset:hover {
-//     background-color: #bb2d3b;
-//     border-color: #b02a37;
-//   }
+export default VoteOptions;
